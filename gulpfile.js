@@ -7,7 +7,7 @@ const babel = require('gulp-babel');
 
 
 gulp.task('sass', ()=> {
-    gulp.src('./dev/scss/styles.scss')
+    gulp.src('./dev/scss/**/*.scss')
         .pipe(sass({
             outputStyle: 'compact'
         }))
@@ -38,7 +38,7 @@ gulp.task('default', ['sass'], ()=> {
     browserSync.init({
         server: './public'
     })
-    gulp.watch('./dev/scss/styles.scss', ['sass'])
+    gulp.watch('./dev/scss/**/*.scss', ['sass'])
     gulp.watch('./dev/pug/*.pug', ['pug']).on('change', browserSync.reload)
     gulp.watch('./dev/js/*.js', ['babel']).on('change', browserSync.reload)
 })
